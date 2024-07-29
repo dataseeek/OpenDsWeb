@@ -1,0 +1,1 @@
+$(".dropify").dropify({ messages: { default: "Arraste o seu arquivo aqui ou clique para procurar, contendo<br />  um registro por linha.<br />  <br /><br /> Arquivos XLS, XLSX, TXT OU CSV", replace: "Arraste ou carregue outro arquivo para substituir", remove: "Remover Arquivo", error: "Ooops, algum erro inesperado." }, error: { fileSize: "Arquivo muito grande (2M max)." } });

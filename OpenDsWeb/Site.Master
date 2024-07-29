@@ -1,0 +1,243 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"  CodeBehind="Site.master.cs"  Inherits="OpenDsWeb.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head id="Head1" runat="server">
+        <meta charset="utf-8" />
+        <title>Open DsWeb</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="DATAWEB APLICAÇÕES ONLINE." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon.ico"> 
+
+        
+       
+
+         <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+         <!-- CSS-->
+         
+        <!-- App css  -->
+       
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+
+        <style>
+
+            .isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.isDisabled > a {
+  color: currentColor;
+  display: inline-block;  /* For IE11/ MS Edge bug */
+  pointer-events: none;
+  text-decoration: none;
+}
+
+         
+
+  .btn-default
+
+   {
+        background-color: #ff0000;
+
+   }
+
+
+        </style>
+      
+               
+    </head>
+
+
+    <body>
+      <span id="CollectedForms-1234"></span>
+         <!-- Begin page -->
+         <div id="wrapper"> 
+            <div class="navbar-custom">
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="Home.aspx" class="logo text-center">
+                        <span class="logo-lg">                            
+                            <img src="assets/images/logo-light.png" alt="" height="42">
+                         
+                            <!-- <span class="logo-lg-text-light">UBold</span> -->
+                        </span>
+                        <span class="logo-sm">
+                               
+                            <!-- <span class="logo-sm-text-dark">U</span> -->
+                            <img src="assets/images/logo-sm.png" alt="" height="24">
+                           
+                        </span>
+                    </a>
+                </div>
+
+             
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light" id="btnMenuMobile">
+                            <i class="fe-menu"></i>
+                        </button>
+                    </li>
+           
+               </ul>
+                <!--  style="margin-top: 2px;margin-left: 2px;" -->
+                 <ul class="list-inline topnav-menu float-md-right mb-0" style="margin-left: 15px;">
+                 </ul>
+ 
+                </div>
+           
+            
+            
+           
+            <!-- end Topbar -->
+   
+           
+            <form id="form1" runat="server">
+            <!-- ========== Left Sidebar Start ========== -->
+
+            <div class="left-side-menu">              
+                <div class="slimscroll-menu">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <ul class="metismenu" id="side-menu">
+                                                     
+
+                            
+                            <li>
+                                <a href="#" style="text-decoration: none;" >
+                                <i class="mdi mdi-apps"></i>
+                               <span class="menu-text"><small> SOLUÇÕES </small></span>
+                               </a>
+                            </li>
+                            <li>
+							    <a href="ConsultaPessoaJuridica_Open.aspx" style="text-decoration: none;" >
+								    <i class="fe-search"></i>
+								    <span class="menu-text">CONSULTAR</span>
+							    </a>
+						    </li>
+
+                            <li>
+							    <a href="ConsultaPessoaJuridica_Open.aspx" style="text-decoration: none;" >
+								    <i class="fe-search"></i>
+								    <span class="menu-text">CONSULTAR</span>
+							    </a>
+						    </li>
+
+                             <li>  <a runat="server" id="btnSair1" class="dropdown-item notify-item" onserverclick="doLogOut">
+								    <i class="fe-arrow-left"></i>
+								    <span>SAIR</span>
+							    </a>
+
+                             </li>
+                          
+                                                                          
+                        </ul>
+
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+               
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->                                       
+                   
+                        <div class="row">
+                            <div class="col-12">
+
+                                <asp:ScriptManager ID="scriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
+                                        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                                            <ProgressTemplate>
+                                                <span id="carregando" style="Z-INDEX: 99; LEFT: 0px; OVERFLOW: visible; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 200%; display: inline;" class="overlay">
+                                                <table height="250" cellSpacing="0" cellPadding="0" width="100%" border="1" style="margin-top: 300px" >
+                                                <tr>
+                                                    <td vAlign="middle" align="center" width="100%" height="100%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                                </table>
+                                                </span>
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                                 
+                                        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                                </div>
+                            </div>  <!-- ROW --> 
+                        </div>   <!-- content -->   
+                    
+                        
+                  
+
+                </div> <!-- content page -->
+                     
+            </form>
+            <!-- </form> -->
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+        </div> <!-- END wrapper  -->
+       
+
+ 
+       <script type="text/javascript">
+
+           function Refresh() {
+               swal({
+                   title: "Tem certeza?",
+                   text: "Os filtros das pesquisas serão limpos",
+                   type: "warning",
+                   showCancelButton: true,
+                   confirmButtonColor: '#DD6B55',
+                   confirmButtonText: 'SIM',
+                   cancelButtonText: "NÃO"
+               }).then(
+
+                   function (result) {
+                       if (result.value) {
+                           window.location.reload();
+                       }
+
+                   })
+
+
+           }
+      
+             </script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+             });
+         </script>
+
+
+        
+                
+       <!-- App js -->
+       <script src="assets/js/app.min.js"></script>
+            
+             
+
+      
+       
+    </body>
+</html>

@@ -1,0 +1,69 @@
+.network-graph {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.network-graph > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.network-graph .tool-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  background-color: #ddd;
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.15s;
+}
+
+.network-graph .tool-tip.is-visible {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+.network-graph .link {
+  stroke: #999;
+  stroke-opacity: 0.6;
+  stroke-width: 4px;
+  transition-property: stroke, stroke-opacity, stroke-width;
+  transition-duration: 0.15s;
+}
+
+.network-graph .link.is-highlighted {
+  stroke: #18aef9;
+  stroke-opacity: 1;
+  stroke-width: 6px;
+}
+
+.network-graph .node:not([data-group="Firer"]) {
+  cursor: pointer;
+}
+
+.network-graph .node__border-circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  transition-property: stroke, stroke-width;
+  transition-duration: 0.15s;
+}
+
+.network-graph .node.is-highlighted .node__border-circle {
+  stroke: #18aef9;
+  stroke-width: 6px;
+}
+
+.network-graph .node__shadow-circle {
+  fill: #999;
+}
