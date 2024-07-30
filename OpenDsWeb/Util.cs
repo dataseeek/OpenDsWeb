@@ -213,6 +213,46 @@ namespace OpenDsWeb
             return (nQtUpper > 0 && nQtDigitos > 0 && pSenha.Length >= 6 && ! invalidChar);
         }
 
+        public static string TrataFiltro(string pSelecao, string pTipoFiltro, string pFiltro)
+        {
+            return TrataFiltro(pSelecao, pTipoFiltro, pFiltro, 0);
+        }
+
+        public static string TrataFiltro(string pSelecao, string pTipoFiltro, string pFiltro, int idTipoCondicaoLista)
+        {
+            StringBuilder varFiltros = new StringBuilder();
+
+
+
+                int flgComma = 0;
+
+                if (pFiltro != String.Empty) { varFiltros.Append(pFiltro); flgComma = 1; }
+                var arrSelecao = pSelecao.Split(';');
+
+                int contador = 0;
+                foreach (string item in arrSelecao)
+                {
+                    if (item.Trim() != String.Empty)
+                    {
+                        if (contador == 0)
+                        {
+                            if (flgComma == 1)
+                            { varFiltros.Append(","); }
+                            varFiltros.Append(((idTipoCondicaoLista == 1) ? "!" : "") + pTipoFiltro + "(");
+                        }
+                        else
+                        { varFiltros.Append(","); }
+
+                        varFiltros.Append(item);
+                        contador++;
+                    }
+
+                if (contador > 0) { varFiltros.Append(")"); };
+            }
+            return varFiltros.ToString();
+        }
+
+
 
         public static string TrataFiltroEnriquecimento(string pSelecao, string pTipoFiltro, string pFiltro, int idTipoCondicaoLista)
         {
