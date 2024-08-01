@@ -568,8 +568,6 @@
 
                 rolaScroll(parseInt($("[id*=hddPagAtual]").val()));
 
-                alert($("[id*=hddHTMLConsulta]").val());
-
                 botoesNav();
 
                 if (!mTagScroll == "") {
