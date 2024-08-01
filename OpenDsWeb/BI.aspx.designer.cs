@@ -11,7 +11,7 @@ namespace OpenDsWeb
 {
 
 
-    public partial class InteligenciaMercado
+    public partial class BI
     {
 
         /// <summary>

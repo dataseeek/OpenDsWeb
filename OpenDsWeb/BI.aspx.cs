@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OpenDsWeb
 {
-    public partial class InteligenciaMercado : System.Web.UI.Page
+    public partial class BI : System.Web.UI.Page
     {
 
 

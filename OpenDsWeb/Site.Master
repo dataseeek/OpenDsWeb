@@ -113,7 +113,7 @@
                             <li>
                                 <a href="#" style="text-decoration: none;" >
                                 <i class="mdi mdi-apps"></i>
-                               <span class="menu-text"><small> SOLUÇÕES </small></span>
+                               <span class="menu-text"><small> DEMO </small></span>
                                </a>
                             </li>
                             <li>
@@ -124,19 +124,12 @@
 						    </li>
 
                             <li>
-							    <a href="InteligenciaMercado.aspx" style="text-decoration: none;" >
+							    <a href="BI.aspx" style="text-decoration: none;" >
 								    <i class="fe-search"></i>
-								    <span class="menu-text">Inteligência de Mercado</span>
+								    <span class="menu-text">BI</span>
 							    </a>
 						    </li>
-
-                             <li>  <a runat="server" id="btnSair1" class="dropdown-item notify-item" onserverclick="doLogOut">
-								    <i class="fe-arrow-left"></i>
-								    <span>SAIR</span>
-							    </a>
-
-                             </li>
-                          
+                        
                                                                           
                         </ul>
 

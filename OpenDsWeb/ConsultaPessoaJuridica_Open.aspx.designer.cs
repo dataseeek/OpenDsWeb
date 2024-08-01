@@ -132,24 +132,6 @@ namespace OpenDsWeb
         protected global::System.Web.UI.WebControls.HiddenField hddUFPJ;
 
         /// <summary>
-        /// hddBotaoVizinhos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddBotaoVizinhos;
-
-        /// <summary>
-        /// hddBotaoParentes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddBotaoParentes;
-
-        /// <summary>
         /// hddContadoResult control.
         /// </summary>
         /// <remarks>

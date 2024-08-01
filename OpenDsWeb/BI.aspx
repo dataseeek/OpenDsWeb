@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="InteligenciaMercado.aspx.cs" Inherits="OpenDsWeb.InteligenciaMercado" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="BI.aspx.cs" Inherits="OpenDsWeb.BI" %>
 <%@ MasterType virtualpath="Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -3433,7 +3433,7 @@ min-width:540px;
 
             var oPesquisa = objFiltrosAgrup();           
             const result = await   $.ajax({
-                    url: "InteligenciaMercado.aspx/doContagemAsync",
+                    url: "BI.aspx/doContagemAsync",
                     data: JSON.stringify({ 'oInputPesquisa': novaPesquisa }),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",                      
@@ -3471,7 +3471,7 @@ min-width:540px;
         function ContagemCompra() {
             var oPesquisa = objFiltrosAgrup();
           $.ajax({
-                url: "InteligenciaMercado.aspx/doContagem",
+                url: "BI.aspx/doContagem",
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -3514,7 +3514,7 @@ min-width:540px;
 
         function DoGeraArquivo() {
             $.ajax({
-                url: "InteligenciaMercado.aspx/ExportToSpreadsheet",
+                url: "BI.aspx/ExportToSpreadsheet",
                 data: JSON.stringify({ 'table': $('#tbContagem').DataTable() }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -3822,7 +3822,7 @@ min-width:540px;
 
             $.ajax({
 
-                url: "InteligenciaMercado.aspx/doSearch",
+                url: "BI.aspx/doSearch",
 
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
                 contentType: "application/json; charset=utf-8",
@@ -4058,7 +4058,7 @@ min-width:540px;
 
             $.ajax({
 
-                url: "InteligenciaMercado.aspx/doSearchEstado",
+                url: "BI.aspx/doSearchEstado",
 
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
 
@@ -4154,7 +4154,7 @@ min-width:540px;
 
             $.ajax({
 
-                url: "InteligenciaMercado.aspx/doSearchDDD",
+                url: "BI.aspx/doSearchDDD",
 
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
 
@@ -4325,7 +4325,7 @@ min-width:540px;
 
             $.ajax({
 
-                url: "InteligenciaMercado.aspx/doSearchMSR",
+                url: "BI.aspx/doSearchMSR",
 
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
 
@@ -4506,7 +4506,7 @@ min-width:540px;
 
             $.ajax({
 
-                url: "InteligenciaMercado.aspx/doSearchMCR",
+                url: "BI.aspx/doSearchMCR",
 
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
 
@@ -4689,7 +4689,7 @@ min-width:540px;
 
             $.ajax({
 
-                url: "InteligenciaMercado.aspx/doSearchMunicipio",
+                url: "BI.aspx/doSearchMunicipio",
 
                 data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
 

@@ -117,7 +117,7 @@
     <div class="card-box">
       <div class="row">
         
-   <ul class="nav nav-tabs nav-bordered" id="tipoConsulta">
+   <ul class="nav nav-tabs nav-bordered">
 	 <li class="nav-item"><a href="#cnpj" data-toggle="tab" class="nav-link active"><i class="mdi mdi-code-equal"></i> CNPJ</a></li>
      <li class="nav-item"><a href="#razao" data-toggle="tab" class="nav-link"><i class="mdi mdi-domain"></i> Razão Social/Nome Fantasia</a></li>
    </ul>
@@ -218,8 +218,6 @@
   <asp:HiddenField ID="hddEstado" runat="server" />
   <asp:HiddenField ID="hddCidPJ" runat="server" />
   <asp:HiddenField ID="hddUFPJ" runat="server" />
-  <asp:HiddenField ID="hddBotaoVizinhos" runat="server" />
-  <asp:HiddenField ID="hddBotaoParentes" runat="server" />
   <asp:HiddenField ID="hddContadoResult" runat="server" />
   <asp:HiddenField ID="hddPagAtual" runat="server" />
   <asp:HiddenField ID="hddHTMLConsulta" runat="server" />
@@ -310,8 +308,7 @@
     <script src="assets/js/network-graph.js?v=09042024a"></script>
 
     <script type="text/javascript">
-
-                  function checkChanged(element) {
+       function checkChanged(element) {
 
                                         
                       if (element.checked == true ) {
@@ -330,51 +327,39 @@
                           $("#chkOk").prop('checked', false);
                       };
                   }
+     </script>
 
-                 
-</script>
-
-    <script>
-    $('#consultas').parsley();
-    </script>
-    
-
-		<script type="text/javascript">
+ 	 <script type="text/javascript">
         jQuery(function($) {
 		 $.mask.definitions['#']='[ 0123456789]';
 				$('.input-mask-cpf').mask('999.999.999-99');
 				$('.input-mask-foneBrasil').mask('(99) 99999999#');
                 $('.input-mask-cnpj').mask('99.999.999/9999-99');
              
-}) ;
+        }) ;
 
-$(function () {
-    $("#txtNroIni").maskMoney({ symbol: 'R$ ', thousands:'.',
-        showSymbol: false, precision: 0
-    });
+        $(function () {
+            $("#txtNroIni").maskMoney({ symbol: 'R$ ', thousands:'.',
+                showSymbol: false, precision: 0
+            });
 
-    $("#txtNroFim").maskMoney({ symbol: 'R$ ', thousands: '.',
-        showSymbol: false, precision: 0
-    });
-
-   
-
+            $("#txtNroFim").maskMoney({ symbol: 'R$ ', thousands: '.',
+                showSymbol: false, precision: 0
+            });
+        });
 
 
-});
+        function SetValor(id, data) {
+            if (id == 1)
+                $("[id*=hddCidade]").val(data);
+            else if (id == 2)
+                $("[id*=hddEstado]").val(data);
+            else if (id == 3)
+                $("[id*=hddCidPJ]").val(data);
+            else if (id == 4)
+                $("[id*=hddUFPJ]").val(data);
 
-
-function SetValor(id, data) {
-    if (id == 1)
-        $("[id*=hddCidade]").val(data);
-    else if (id == 2)
-        $("[id*=hddEstado]").val(data);
-    else if (id == 3)
-        $("[id*=hddCidPJ]").val(data);
-    else if (id == 4)
-        $("[id*=hddUFPJ]").val(data);
-
-}
+        }
 
 
             function RegistraCall(tel) {
@@ -392,7 +377,7 @@ function SetValor(id, data) {
 
             }
 
-function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
+             function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
 
 
     var mNextPage = 0;
@@ -480,7 +465,7 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
     oPesquisa.Cidade = Cidade;
     oPesquisa.Estado = Estado;
 
-  
+ 
     $.ajax({
 
         url: "ConsultaPessoaJuridica_Open.aspx/doSearch",
@@ -582,6 +567,9 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
 
 
                 rolaScroll(parseInt($("[id*=hddPagAtual]").val()));
+
+                alert($("[id*=hddHTMLConsulta]").val());
+
                 botoesNav();
 
                 if (!mTagScroll == "") {
@@ -615,7 +603,7 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
          
  }
                                
- function HTMLConsultaCNPJ(oRegistrosPJ,oRegVinc,oRegCNAEs) {
+             function HTMLConsultaCNPJ(oRegistrosPJ,oRegVinc,oRegCNAEs) {
 
      var cHTML = "";
 
@@ -782,6 +770,7 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
 
          cHTML += '<label class="cs-input-crm" for="inputPorte" style="font-size: 16px;"> Tipo </label></div></div>';
 
+         /*
 
          cHTML += '<div class="col-md-6">  <div class="form-floating"> <input type="text" class="form-control" disabled="" id="inputff" value="';
 
@@ -819,7 +808,7 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
 
          cHTML += '<label class="cs-input-crm" for="media_faturamento_cnae" style="font-size: 16px;"> Qtde.Empresas no mesmo CNAE </label> </div> </div> </div>   <br />   ';
 
-
+*/
 
          // Formulário Linha 7
 
@@ -1104,7 +1093,7 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
     
  }
 
- function HTMListaPJ(oRegistrosPJ) {
+             function HTMListaPJ(oRegistrosPJ) {
 
      var cHTML = "<div class='col-md-11'><div class='row'><div id='navegacao'></div></div<div class='table-responsive'>";
      cHTML += "<table class='table table-striped table-bordered table-hover'  style='background-color: white;'><thead>";
@@ -1213,11 +1202,6 @@ function Pesquisar(tipoPesquisa, pDocumento, pNomeCep, pNro) {
      $("[id*=hddPagAtual]").val(mAtuPag.toString());
      rolaScroll(mAtuPag);
      botoesNav();
-
-    
-
-
-
  }
 
 
@@ -1238,95 +1222,6 @@ function trataTelefoneVoip(DDD, telefone)
 
 }
 
-
-function SaldoCliente() {
-
-    
-        var oPesquisa = {};
-    
-
-        $.ajax({
-
-            url: "Home.aspx/doSaldoCliente",
-
-            data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-
-            type: "POST",
-            success: function (data) {
-
-                var xdiv = $("#divsaldoCliente");
-                xdiv.empty();
-                var xHtml = '<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">  Fechar <i class="ace-icon fa fa-times"></i> </button><b> ' + data.d.msgRetorno + '</b></div>';
-                xdiv.append(xHtml);
-
-            }
-        ,
-            error: function (jqXHR, textStatus, errorThrown) {
-                var mhRef = '/Login.aspx?erro=TIPOEXCESSOAINVALIDO' + "&msg=" + 'jqXHR.responseJSON.ExceptionType IS NULL'; if (jqXHR.responseJSON.ExceptionType != null) { mhRef = '/Login.aspx?erro=' + jqXHR.responseJSON.ExceptionType + "&msg=" + jqXHR.responseJSON.Message; window.location.href = mhRef;}
-            }
-        });
-    }
-
-       if ($("[id*=hddHasPgtoAberto]").val() == "1") { DoPesqHistCompraPend(); }
-   
-
-            ;
-
-
-            function CheckZap(cel) {
-
-
-
-                user = 'dataseek';
-                apikey = 'xxxx';
-                var status = '';
-               
-
-                    // data: JSON.stringify(input),
-                    jQuery.post( "https://webservice.checkwa.com/", { user: user, apikey: apikey, action: "check", num: cel , cod: "55" })
-                        .done(function (data) {
-
-                            var dados = JSON.parse(data);
-
-                            switch (dados.code) {
-                                case '001':
-                                    status = '<span class="badge badge-success">Número com Whatsapp!</span> <a target="_blank" href="https://api.whatsapp.com/send?1=pt_BR&phone=55'  + cel + '&text=Olá!"><img src="assets/img/wapp.png" width="16px" height="16px"> Enviar Mensagem</a>'
-                                    break;
-                                case '002':
-                                    status = '<span class="badge badge-danger">Não usa WhatsApp!</span> '
-                                    break;
-                                 case '003':
-                                    status = '<span class="badge badge-warning">Conta não existe - Solicite sua conta de verificação WhatsApp</span>'
-                                    break;
-                                 case '004':
-                                    status = '<span class="badge badge-warning">Solicitação Desconhecida</span>'
-                                    break;
-                                case '005':
-                                    status = '<span class="badge badge-warning">Formato do número incorreto</span>'
-                                    break;
-                                  case '006':
-                                    status = '<span class="badge badge-warning">Sem crédito disponível para consulta</span>'
-                                    break;
-                                     
-                            }
-
-                            // htm = "Telefone: " + data.num + "<br/ > Visto por último : " + data.lastseen + "Status : " + data.status + "<br /> <img src='" + data.picture + "' />";                            
-                            $("#whats-info").html("" + status + "<br /><b>Número Telefone: </b>" + dados.num  + "<br /><b>Limite:</b> " + dados.limit + "<br /><b>Visto por último</b>: " + dados.lastseen + "<br /><b>Status WhatasApp</b>: " + dados.status + "<BR /> <img src='" + dados.picture + "' height='200px' alt='Sem Imagem' border='0' />" );
-                            jQuery("#modal-whats").modal('show');
-                            
-
-                                       
-
-                    });
-
-
-                                       
-
-             }
-          
- 
 
         function FeedHiddenContagem(tipoArquivo) {
 
@@ -1387,11 +1282,7 @@ function SaldoCliente() {
 
         $(".chosen-select").chosen();
 
-    </script>
-
-
-
-     <script>
+        
       $( document ).ready(function () {
 
           window.onhashchange = function (event) {        
@@ -1414,45 +1305,25 @@ function SaldoCliente() {
 
             $('#txtCNPJ').keypress(function(e){
                  if(e.keyCode==13)
-             $('#btnCNPJ').click();
-          });
+             $('#btnCNPJ').click(); });
 
              $('#txtNome').keypress(function(e){
                  if(e.keyCode==13)
-             $('#btnNome').click();
-          });
+             $('#btnNome').click(); });
 
              $('#txtRazao').keypress(function(e){
                  if(e.keyCode==13)
-             $('#btnRazao').click();
-          });
+             $('#btnRazao').click(); });
 
-             $('#txtTelefone').keypress(function(e){
-                 if(e.keyCode==13)
-             $('#btnTelefone').click();
-          });
-
-                $('#txtCep').keypress(function(e){
-                 if(e.keyCode==13)
-             $('#btnCep').click();
-          });
-
-                 $('#txtEmail').keypress(function(e){
-                 if(e.keyCode==13)
-             $('#btnEmail').click();
-          });
-
-                    $('#txtSite').keypress(function(e){
-                 if(e.keyCode==13)
-             $('#btnSite').click();
-          });
-
-
-          $("#txtPlacaRenavam").mask('AAA9999');
-      
+          if ($("[id*=hddCNPJ]").val() != '') {
+              document.getElementById("divInputDados").style.visibility = "hidden";
+              $('#txtCNPJ').val() = $("[id*=hddCNPJ]").val();
+              Pesquisar(2, '', '', '');
+          }
          
       });
+       
 
-  </script>
+     </script>
 
 </asp:Content>

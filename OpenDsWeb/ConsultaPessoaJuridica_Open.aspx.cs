@@ -19,19 +19,24 @@ namespace OpenDsWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* string cnpj = Request.QueryString["cnpj"];*/
+            string cnpj = String.Empty;
 
             this.Master.ChangeTitle("Consultas");
 
             // primeira vez
              if (!Page.IsPostBack)
              {
-            this.hddBotaoParentes.Value = "";
-             this.hddBotaoVizinhos.Value = "";
 
-            this.hddContadoResult.Value = "0";
-             this.hddPagAtual.Value = "0";
-             this.hddHTMLConsulta.Value = "";
-            };
+                this.hddContadoResult.Value = "0";
+                this.hddPagAtual.Value = "0";
+                this.hddHTMLConsulta.Value = "";
+
+                if (cnpj == null)
+                    this.hddCNPJ.Value = String.Empty;
+                else 
+                    this.hddCNPJ.Value = cnpj;
+             };
 
         }
 
