@@ -14,15 +14,23 @@ using System.Text.RegularExpressions;
 
 namespace OpenDsWeb
 {
-    public partial class ConsultaPessoaJuridica_Open : System.Web.UI.Page
+    public partial class Consulta : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* string cnpj = Request.QueryString["cnpj"];*/
-            string cnpj = String.Empty;
-
+            string cnpj = Request.QueryString["cnpj"];
             this.Master.ChangeTitle("Consultas");
+
+            if (cnpj == null)
+                this.hddCNPJ.Value = String.Empty;
+            else
+            {
+                this.hddCNPJ.Value = cnpj;
+            }
+                
+
+            
 
             // primeira vez
              if (!Page.IsPostBack)
@@ -32,10 +40,7 @@ namespace OpenDsWeb
                 this.hddPagAtual.Value = "0";
                 this.hddHTMLConsulta.Value = "";
 
-                if (cnpj == null)
-                    this.hddCNPJ.Value = String.Empty;
-                else 
-                    this.hddCNPJ.Value = cnpj;
+                
              };
 
         }

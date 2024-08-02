@@ -1835,164 +1835,6 @@ min-width:540px;
 
         }; // InitTables function end
 
-        function BlockPortes(tipo) {
-
-            // Store Porte target Ids in hidden field
-            // ---------------------------------------
-
-            if (tipo == "Porte") {
-
-                var sIdPorteList = '';
-                sIdPorteList = $("[id*=hddPorteTargetList]").val();
-                $("[id*=hddQFF]").val(''); $("[id*=hddQFI]").val('');
-                $("[id*=hddFXETargetList]").val('');
-
-                if (sIdPorteList == '') {
-
-                    $('#acbtnPorte').css("background-color", "rgb(102,102,104)");
-                    document.getElementById("acbtnFUNC").style.visibility = "visible";
-                    document.getElementById("acbtnFXE").style.visibility = "visible";
-
-                }
-                else {
-
-                    $('#acbtnPorte').css("background-color", "rgb(21, 212, 240)");
-                    document.getElementById("acbtnFUNC").style.visibility = "hidden";
-                    document.getElementById("acbtnFXE").style.visibility = "hidden";
-                    $('#collapseFUNC').removeClass("show");
-                    $('#collapseFXE').removeClass("show");
-                }
-            }
-            else if (tipo == "FXE") {
-
-
-
-                var sIdPorteList = '';
-                sIdPorteList = $("[id*=hddFXETargetList]").val();
-                $("[id*=hddQFF]").val(''); $("[id*=hddQFI]").val('');
-                $("[id*=hddPorteTargetList]").val('');
-
-                if (sIdPorteList == '') {
-                    $('#txtqtdfunini').prop("disabled", false);
-                    $('#txtqtdfunfim').prop("disabled", false);
-                    $('#acbtnPorte').css("background-color", "rgb(102,102,104)");
-                    document.getElementById("acbtnFUNC").style.visibility = "visible";
-                    document.getElementById("acbtnPorte").style.visibility = "visible";
-
-                }
-                else {
-                    $('#txtqtdfunini').prop("disabled", true);
-                    $('#txtqtdfunfim').prop("disabled", true);
-                    $('#acbtnPorte').css("background-color", "rgb(21, 212, 240)");
-                    document.getElementById("acbtnFUNC").style.visibility = "hidden";
-                    document.getElementById("acbtnPorte").style.visibility = "hidden";
-                    $('#collapseFUNC').removeClass("show");
-                    $('#collapsePorte').removeClass("show");
-                }
-
-            }
-            else if (tipo == "Func") {
-
-                $("[id*=hddFXETargetList]").val('');
-                $("[id*=hddPorteTargetList]").val('');
-
-                if ($("[id*=hddQFI]").val() == '' && $("[id*=hddQFF]").val() == '') {
-
-                    document.getElementById("acbtnFUNC").style.visibility = "visible";
-                    document.getElementById("acbtnPorte").style.visibility = "visible";
-                    document.getElementById("acbtnFXE").style.visibility = "visible";
-                }
-
-                    else {
-                document.getElementById("acbtnFUNC").style.visibility = "visible";
-                document.getElementById("acbtnPorte").style.visibility = "hidden";
-                document.getElementById("acbtnFXE").style.visibility = "hidden";
-                $('#collapseFXE').removeClass("show");
-                $('#collapsePorte').removeClass("show");
-                }
-
-            }
-
-
-            if (tipo == "Ramo") {
-
-                var sIdPorteList = '';
-                sIdPorteList = $("[id*=hddRamoTargetList]").val();
-                $("[id*=hddEspecialidadeTargetList]").val('');
-                $("[id*=hddINDTargetList]").val('');
-
-                if (sIdPorteList == '') {
-
-                    
-                    document.getElementById("acbtnIND").style.visibility = "visible";
-                    document.getElementById("acbtnEspecialidade").style.visibility = "visible";
-
-                }
-                else {
-
-                    
-                    document.getElementById("acbtnIND").style.visibility = "hidden";
-                    document.getElementById("acbtnEspecialidade").style.visibility = "hidden";
-                    $('#collapseIND').removeClass("show");
-                    $('#collapseEspecialidade').removeClass("show");
-                }
-
-            } else if (tipo == "IND")
-
-            {
-
-                var sIdPorteList = '';
-                sIdPorteList = $("[id*=hddINDTargetList]").val();
-                $("[id*=hddEspecialidadeTargetList]").val('');
-                $("[id*=hddRamoTargetList]").val('');
-
-                if (sIdPorteList == '') {
-
-
-                    document.getElementById("acbtnRamo").style.visibility = "visible";
-                    document.getElementById("acbtnEspecialidade").style.visibility = "visible";
-
-                }
-                else {
-
-
-                    document.getElementById("acbtnRamo").style.visibility = "hidden";
-                    document.getElementById("acbtnEspecialidade").style.visibility = "hidden";
-                    $('#collapseAtividade').removeClass("show");
-                    $('#collapseEspecialidade').removeClass("show");
-                }
-
-            }
-
-            else if (tipo == "Especialidade") {
-
-                var sIdPorteList = '';
-                sIdPorteList = $("[id*=hddEspecialidadeTargetList]").val();
-                $("[id*=hddINDTargetList]").val('');
-                $("[id*=hddRamoTargetList]").val('');
-
-                if (sIdPorteList == '') {
-
-
-                    document.getElementById("acbtnRamo").style.visibility = "visible";
-                    document.getElementById("acbtnIND").style.visibility = "visible";
-
-                }
-                else {
-
-
-                    document.getElementById("acbtnRamo").style.visibility = "hidden";
-                    document.getElementById("acbtnIND").style.visibility = "hidden";
-                    $('#collapseAtividade').removeClass("show");
-                    $('#collapseIND').removeClass("show");
-                }
-
-            }
-
-
-                
-        };
-
         function SetTargetIds(tipo) {
 
             // Store Target Ids in hidden field
@@ -2060,19 +1902,12 @@ min-width:540px;
 
             // set the hidden field value
             var filtrosPesquisa = $("[id*=hddFiltrosPesquisa]").val();
-            
+
             $(tag_lista).val(sIdList);
             $(lista).val(sNmList);
 
-            
-
             ResetFiltros(tipo, filtrosPesquisa);
-           
-
-            if (tipo == "Porte" || tipo == "FXE" ||  tipo == "Ramo" || tipo == "IND" || tipo == "Especialidade")
-                BlockPortes(tipo);
-           
-
+  
             if (filtrosPesquisa.length > 0 && !(filtrosPesquisa .includes(tipo)) )
                 $("[id*=hddFiltrosPesquisa]").val(filtrosPesquisa  + ";" + tipo);
 
@@ -2154,12 +1989,6 @@ min-width:540px;
 
             $(tag_lista).val(sIdList);
             $(lista).val(sNmList);
-
-                                  
-
-            if (tipo == "Porte" || tipo == "FXE" || tipo == "Ramo" || tipo == "IND" || tipo == "Especialidade")
-                BlockPortes(tipo);
-
 
             if (filtrosPesquisa.length > 0 && !(filtrosPesquisa.includes(tipo)))
                 $("[id*=hddFiltrosPesquisa]").val(filtrosPesquisa + ";" + tipo);
@@ -2606,11 +2435,9 @@ min-width:540px;
                     break;
                 case 4:
                     $("[id*=hddQFI]").val(data);
-                    BlockPortes("Func");
                     break;                    
                 case 5:
                     $("[id*=hddQFF]").val(data);
-                    BlockPortes("Func");
                     break;
                 case 6:
                     if (data)
@@ -3593,7 +3420,6 @@ min-width:540px;
                         dtSelectAll($('#tbRamoTarget').dataTable(), $('#tbRamoSource').dataTable(), 2, 'desc');
 
                     SetTargetIds('Ramo');
-                    BlockPortes('Ramo');
                     break;
 
                 case 'PRT':
@@ -3601,7 +3427,6 @@ min-width:540px;
                         dtSelectAll($('#tbPorteSource').dataTable(), $('#tbPorteTarget').dataTable(), 2, 'desc');
                     else
                         dtSelectAll($('#tbPorteTarget').dataTable(), $('#tbPorteSource').dataTable(), 2, 'desc');
-                    BlockPortes('Porte');
                     SetTargetIds('Porte');
                     break;
 
@@ -3610,7 +3435,6 @@ min-width:540px;
                         dtSelectAll($('#tbFXESource').dataTable(), $('#tbFXETarget').dataTable(), 2, 'desc');
                     else
                         dtSelectAll($('#tbFXETarget').dataTable(), $('#tbFXESource').dataTable(), 2, 'desc');
-                    BlockPortes('Porte');
                     SetTargetIds('FXE');
                     break;
 

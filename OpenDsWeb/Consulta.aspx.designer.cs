@@ -11,7 +11,7 @@ namespace OpenDsWeb
 {
 
 
-    public partial class ConsultaPessoaJuridica_Open
+    public partial class Consulta
     {
 
         /// <summary>

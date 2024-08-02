@@ -1,4 +1,4 @@
-﻿<%@ Page validateRequest="false" Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="ConsultaPessoaJuridica_Open.aspx.cs" Inherits="OpenDsWeb.ConsultaPessoaJuridica_Open" %>
+﻿<%@ Page validateRequest="false" Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="Consulta.aspx.cs" Inherits="OpenDsWeb.Consulta" %>
 <%@ MasterType virtualpath="Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -468,12 +468,13 @@
  
     $.ajax({
 
-        url: "ConsultaPessoaJuridica_Open.aspx/doSearch",
+        url: "Consulta.aspx/doSearch",
 
         data: JSON.stringify({ 'oInputPesquisa': oPesquisa }),
         contentType: "application/json",
         dataType: "json",       
         type: "POST",
+        global: false,
         success: function (data) {
 
        
@@ -606,17 +607,13 @@
      var cHTML = "";
 
      
-     console.log(oRegistrosPJ);
-     
-     console.log(oRegistrosPJ.length);
+    
      
 
      for (var i = 0; i < oRegistrosPJ.length; i++) {
 
          
-         console.log('i: ');
-         console.log(i);
-         
+               
 
          var mCnpjAtual = oRegistrosPJ[i].cnpj.trim();
 
@@ -626,7 +623,7 @@
          if (!(oRegistrosPJ[i].situacao.trim() == 'ATIVA'))
              cHTML += "<button type='button' class='btn btn-danger waves-effect waves-light'><span class='btn-label'><i class='mdi mdi-alert-circle-outline'></i> EMPRESA " + oRegistrosPJ[i].situacao.trim() + "</button><br /><br />";
          else
-             cHTML += "<button type='button' class='btn btn-primary waves-effect waves-light'><span class='btn-label'><i class='mdi mdi-check-circle-outline'></i> EMPRESA " + oRegistrosPJ[i].situacao.trim() + "</button><br /><br />";
+             cHTML += "<button type='button' class='btn btn-success waves-effect waves-light'><span class='btn-label'><i class='mdi mdi-check-circle-outline'></i> EMPRESA " + oRegistrosPJ[i].situacao.trim() + "</button><br /><br />";
 
          cHTML += '</div> ';
 
@@ -1314,14 +1311,14 @@ function trataTelefoneVoip(DDD, telefone)
              $('#btnRazao').click(); });
 
           if ($("[id*=hddCNPJ]").val() != '') {
-              document.getElementById("divInputDados").style.visibility = "hidden";
-              $('#txtCNPJ').val() = $("[id*=hddCNPJ]").val();
-              Pesquisar(2, '', '', '');
+
+              var cnpj = $("[id*=hddCNPJ]").val();                            
+              Pesquisar(2, cnpj, '', '');
           }
          
       });
        
 
-     </script>
+    </script>
 
 </asp:Content>

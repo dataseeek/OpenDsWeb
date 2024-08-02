@@ -664,7 +664,7 @@
     <Content Include="assets\libs\twitter-bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
     <Content Include="assets\libs\x-editable\bootstrap-editable.css" />
     <Content Include="assets\libs\x-editable\bootstrap-editable.min.js" />
-    <Content Include="ConsultaPessoaJuridica_Open.aspx" />
+    <Content Include="Consulta.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="BI.aspx" />
     <Content Include="lib\ClosedXML.dll" />
@@ -675,12 +675,12 @@
   <ItemGroup>
     <Compile Include="AcessoDados.cs" />
     <Compile Include="cnae.cs" />
-    <Compile Include="ConsultaPessoaJuridica_Open.aspx.cs">
-      <DependentUpon>ConsultaPessoaJuridica_Open.aspx</DependentUpon>
+    <Compile Include="Consulta.aspx.cs">
+      <DependentUpon>Consulta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultaPessoaJuridica_Open.aspx.designer.cs">
-      <DependentUpon>ConsultaPessoaJuridica_Open.aspx</DependentUpon>
+    <Compile Include="Consulta.aspx.designer.cs">
+      <DependentUpon>Consulta.aspx</DependentUpon>
     </Compile>
     <Compile Include="DDD.cs" />
     <Compile Include="Home.aspx.cs">

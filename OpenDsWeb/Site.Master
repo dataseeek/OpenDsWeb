@@ -117,7 +117,7 @@
                                </a>
                             </li>
                             <li>
-							    <a href="ConsultaPessoaJuridica_Open.aspx" style="text-decoration: none;" >
+							    <a href="Consulta.aspx" style="text-decoration: none;" >
 								    <i class="fe-search"></i>
 								    <span class="menu-text">CONSULTAR</span>
 							    </a>

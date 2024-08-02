@@ -230,25 +230,26 @@ namespace OpenDsWeb
                 var arrSelecao = pSelecao.Split(';');
 
                 int contador = 0;
-                foreach (string item in arrSelecao)
+            foreach (string item in arrSelecao)
+            {
+                if (item.Trim() != String.Empty)
                 {
-                    if (item.Trim() != String.Empty)
+                    if (contador == 0)
                     {
-                        if (contador == 0)
-                        {
-                            if (flgComma == 1)
-                            { varFiltros.Append(","); }
-                            varFiltros.Append(((idTipoCondicaoLista == 1) ? "!" : "") + pTipoFiltro + "(");
-                        }
-                        else
+                        if (flgComma == 1)
                         { varFiltros.Append(","); }
-
-                        varFiltros.Append(item);
-                        contador++;
+                        varFiltros.Append(((idTipoCondicaoLista == 1) ? "!" : "") + pTipoFiltro + "(");
                     }
+                    else
+                    { varFiltros.Append(","); }
 
-                if (contador > 0) { varFiltros.Append(")"); };
+                    varFiltros.Append(item);
+                    contador++;
+                }
             }
+            
+            if (contador > 0) { varFiltros.Append(")"); };
+            
             return varFiltros.ToString();
         }
 
